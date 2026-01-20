@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --color-skillmon-teal: #004a52;
+  --font-exo: "Exo 2", sans-serif;
+}

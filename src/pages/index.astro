@@ -1,11 +1,42 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import skillmonLogo from "../assets/skillmon.svg";
 ---
 
 <Layout>
-	<Welcome />
+  <main
+    class="flex min-h-screen flex-col items-center justify-center p-4 overflow-hidden relative"
+  >
+    <!-- Background gradient for a futuristic feel -->
+    <div
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-skillmon-teal/20 blur-[120px] rounded-full pointer-events-none"
+    >
+    </div>
+
+    <div class="relative flex flex-col items-center gap-12 text-center z-10">
+      <!-- Logo -->
+      <div class="relative group">
+        <div
+          class="absolute -inset-4 bg-skillmon-teal/30 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+        >
+        </div>
+        <img
+          src={skillmonLogo.src}
+          alt="Skillmon Logo"
+          class="w-48 h-48 md:w-64 md:h-64 relative"
+        />
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <h1
+          class="text-6xl md:text-8xl font-black tracking-[0.2em] text-skillmon-teal drop-shadow-[0_0_15px_rgba(0,74,82,0.5)]"
+        >
+          skillmon
+        </h1>
+        <p class="text-lg md:text-xl text-white/40 tracking-[0.5em] font-light">
+          coming soon
+        </p>
+      </div>
+    </div>
+  </main>
 </Layout>
