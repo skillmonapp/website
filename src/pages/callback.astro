@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import skillmonLogo from "../assets/skillmon.svg";
+---
+
+<Layout
+  title="skillmon — signed in"
+  description="Returning you to the Skillmon app."
+  noindex
+>
+  <main>
+    <div>
+      <img class="mark" src={skillmonLogo.src} alt="" />
+    </div>
+    <div>
+      <div class="wordmark">authorization complete</div>
+    </div>
+    <p class="lede">
+      skillmon should be open on your desktop. You can close this tab.
+    </p>
+    <p class="fallback">
+      Nothing happened? <a id="manual-link">Open skillmon manually</a>.
+    </p>
+    <script is:inline>
+      // Concatenate location.search verbatim: the OAuth code and state must
+      // reach the app byte-for-byte, so no URLSearchParams round-trip.
+      var deepLink = "eveauth-skillmon://callback" + window.location.search;
+      document.getElementById("manual-link").href = deepLink;
+      if (window.location.search) window.location.href = deepLink;
+    </script>
+  </main>
+</Layout>
+
+<style>
+  .fallback {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--fg-dim);
+  }
+
+  .fallback a {
+    border-bottom: 1px solid var(--border-strong);
+    padding-bottom: 1px;
+  }
+</style>
