@@ -1,3 +1,10 @@
+# `packages` is required by pnpm 10, which Cloudflare runs — it reads any
+# pnpm-workspace.yaml as a workspace declaration and fails without it.
+# `allowBuilds` is pnpm 11's gate on dependency install scripts; pnpm 10
+# ignores it.
+packages:
+  - .
+
 allowBuilds:
   esbuild: true
   sharp: true
